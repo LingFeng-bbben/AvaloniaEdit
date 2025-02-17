@@ -70,7 +70,7 @@ namespace AvaloniaEdit.Editing
         #endregion
 
         private SelectionMode _mode;
-        private AnchorSegment _startWord;
+        //private AnchorSegment _startWord;
         private Point _possibleDragStartMousePos;
 
         #region Constructor + Attach + Detach
@@ -474,7 +474,7 @@ namespace AvaloniaEdit.Editing
 
                     if (TextArea.CapturePointer(e.Pointer))
                     {
-                        if (modifiers.HasFlag(HotkeyConfiguration.BoxSelectionModifiers) && TextArea.Options.EnableRectangularSelection)
+                        /*if (modifiers.HasFlag(HotkeyConfiguration.BoxSelectionModifiers) && TextArea.Options.EnableRectangularSelection)
                         {
                             _mode = SelectionMode.Rectangular;
                             if (shift && TextArea.Selection is RectangleSelection)
@@ -490,7 +490,7 @@ namespace AvaloniaEdit.Editing
                                 TextArea.Selection = TextArea.Selection.StartSelectionOrSetEndpoint(oldPosition, TextArea.Caret.Position);
                             }
                         }
-                        else if (pointer.Properties.IsLeftButtonPressed && e.ClickCount == 1) // e.ClickCount == 1
+                        else*/ if (pointer.Properties.IsLeftButtonPressed) // e.ClickCount == 1
                         {
                             _mode = SelectionMode.Normal;
                             if (shift && !(TextArea.Selection is RectangleSelection))
@@ -498,7 +498,7 @@ namespace AvaloniaEdit.Editing
                                 TextArea.Selection = TextArea.Selection.StartSelectionOrSetEndpoint(oldPosition, TextArea.Caret.Position);
                             }
                         }
-                        else
+                        /*else
                         {
                             SimpleSegment startWord;
                             if (e.ClickCount == 3)
@@ -535,7 +535,7 @@ namespace AvaloniaEdit.Editing
                                 TextArea.Selection = Selection.Create(TextArea, startWord.Offset, startWord.EndOffset);
                                 _startWord = new AnchorSegment(TextArea.Document, startWord.Offset, startWord.Length);
                             }
-                        }
+                        }*/
                     }
                     e.Handled = true;
                 }
@@ -725,7 +725,7 @@ namespace AvaloniaEdit.Editing
                 else
                     TextArea.Selection = TextArea.Selection.StartSelectionOrSetEndpoint(oldPosition, TextArea.Caret.Position);
             }
-            else if (_mode == SelectionMode.WholeWord || _mode == SelectionMode.WholeLine)
+            /*else if (_mode == SelectionMode.WholeWord || _mode == SelectionMode.WholeLine)
             {
                 var newWord = (_mode == SelectionMode.WholeLine) ? GetLineAtMousePosition(e) : GetWordAtMousePosition(e);
                 if (newWord != SimpleSegment.Invalid && _startWord != null)
@@ -736,7 +736,7 @@ namespace AvaloniaEdit.Editing
                     // moves caret to start or end of selection
                     TextArea.Caret.Offset = newWord.Offset < _startWord.Offset ? newWord.Offset : Math.Max(newWord.EndOffset, _startWord.EndOffset);
                 }
-            }
+            }*/
             TextArea.Caret.BringCaretToView(5.0);
         }
         #endregion
