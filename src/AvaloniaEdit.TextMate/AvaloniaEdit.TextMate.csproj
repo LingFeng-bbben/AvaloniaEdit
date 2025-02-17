@@ -4,6 +4,8 @@
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <PackageDescription>TextMate integration for AvaloniaEdit.</PackageDescription>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>Lingfeng-bbben.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
