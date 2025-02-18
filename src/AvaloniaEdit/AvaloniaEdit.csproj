@@ -3,10 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <WarningsNotAsErrors>0612,0618</WarningsNotAsErrors>
-    <PackageId>Avalonia.AvaloniaEdit</PackageId>
+    <PackageId>Lingfeng-bbben.AvaloniaEdit</PackageId>
     <PackageDescription>This project is a port of AvalonEdit, a WPF-based text editor for Avalonia.</PackageDescription>
     <PackageTags>editor;code-editor;avalonia;text-editor;netstandard</PackageTags>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <Version>11.0.6.1</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
